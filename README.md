@@ -20,7 +20,7 @@ An end-to-end deep learning application that identifies plant diseases from leaf
 
 ### Prerequisites
 
-- Python 3.x
+- Python 3.8 or higher
 - Required dependencies (to be specified based on project setup)
 
 ### Installation
