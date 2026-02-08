@@ -41,7 +41,7 @@ cd agri-vision-ai
 # Run instructions to be added
 ```
 
-## 🚀 Usage
+## Usage
 
 1. Upload an image of a plant leaf
 2. The AI model analyzes the image
