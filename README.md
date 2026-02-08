@@ -1,8 +1,8 @@
-# Agri-Vision AI 🌱
+# Agri-Vision AI 
 
 An end-to-end deep learning application that identifies plant diseases from leaf images, enabling early intervention and reducing crop loss. Built with convolutional neural networks (CNN) and deployed as a user-friendly web application for gardeners, farmers and agricultural consultants.
 
-## 🎯 Features
+## Features
 
 - **Disease Detection**: Accurately identifies various plant diseases from leaf images
 - **Deep Learning Powered**: Uses CNN (Convolutional Neural Networks) for image classification
@@ -10,13 +10,13 @@ An end-to-end deep learning application that identifies plant diseases from leaf
 - **Early Intervention**: Helps farmers and gardeners take timely action to prevent crop loss
 - **Fast Results**: Quick analysis and diagnosis of plant health issues
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 - **Machine Learning**: Deep Learning with CNN
 - **Computer Vision**: Image processing and classification
 - **Web Framework**: For deploying the application interface
 
-## 📋 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -48,7 +48,7 @@ cd agri-vision-ai
 3. Receive instant diagnosis and disease identification
 4. Get recommendations for treatment (if applicable)
 
-## 📖 Project Structure
+## Project Structure
 
 ```
 agri-vision-ai/
@@ -57,21 +57,21 @@ agri-vision-ai/
 └── .gitignore         # Git ignore configuration
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
+## Author
 
 **Karikari Samuel**
 
 - GitHub: [@KarikariSamuelZachary](https://github.com/KarikariSamuelZachary)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Built to support farmers and agricultural consultants in identifying plant diseases
 - Aimed at reducing crop loss through early disease detection
