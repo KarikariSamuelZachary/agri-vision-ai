@@ -6,14 +6,16 @@ An end-to-end deep learning application that identifies plant diseases from leaf
 
 - **Disease Detection**: Accurately identifies various plant diseases from leaf images
 - **Deep Learning Powered**: Uses CNN (Convolutional Neural Networks) for image classification
+- **Multi-Crop Support**: Detects diseases in peppers, potatoes, and tomatoes
 - **User-Friendly Interface**: Simple web application for easy image upload and diagnosis
 - **Early Intervention**: Helps farmers and gardeners take timely action to prevent crop loss
 - **Fast Results**: Quick analysis and diagnosis of plant health issues
 
 ## Technology Stack
 
-- **Machine Learning**: Deep Learning with CNN
+- **Machine Learning**: Deep Learning with CNN (TensorFlow/Keras)
 - **Computer Vision**: Image processing and classification
+- **Dataset**: PlantVillage dataset for training
 - **Web Framework**: For deploying the application interface
 
 ## Getting Started
@@ -21,7 +23,9 @@ An end-to-end deep learning application that identifies plant diseases from leaf
 ### Prerequisites
 
 - Python 3.8 or higher
-- Required dependencies (to be specified based on project setup)
+- TensorFlow 2.x
+- NumPy, Pandas, Matplotlib
+- Jupyter Notebook (for development)
 
 ### Installation
 
@@ -33,7 +37,7 @@ cd agri-vision-ai
 
 2. Install dependencies:
 ```bash
-# Installation instructions to be added
+pip install -r requirements.txt
 ```
 
 3. Run the application:
@@ -52,10 +56,49 @@ cd agri-vision-ai
 
 ```
 agri-vision-ai/
-├── README.md           # Project documentation
-├── LICENSE            # MIT License
-└── .gitignore         # Git ignore configuration
+├── README.md              # Project documentation
+├── LICENSE               # MIT License
+├── .gitignore            # Git ignore configuration
+└── ml/
+    ├── data/
+    │   ├── raw/          # Raw dataset (PlantVillage)
+    │   │   └── PlantVillage/
+    │   │       ├── Pepper__bell___Bacterial_spot/
+    │   │       ├── Pepper__bell___healthy/
+    │   │       ├── Potato___Early_blight/
+    │   │       ├── Potato___healthy/
+    │   │       ├── Potato___Late_blight/
+    │   │       ├── Tomato_Bacterial_spot/
+    │   │       ├── Tomato_Early_blight/
+    │   │       ├── Tomato_healthy/
+    │   │       ├── Tomato_Late_blight/
+    │   │       └── ... (other disease classes)
+    │   └── processed/    # Preprocessed data
+    ├── models/
+    │   └── saved_model/  # Trained models
+    ├── notebooks/        # Jupyter notebooks for experimentation
+    └── scripts/          # Python scripts for training and inference
 ```
+
+## Supported Diseases
+
+### Peppers
+- Bacterial spot
+- Healthy
+
+### Potatoes
+- Early blight
+- Late blight
+- Healthy
+
+### Tomatoes
+- Bacterial spot
+- Early blight
+- Late blight
+- Target spot
+- Tomato mosaic virus
+- Tomato Yellow Leaf Curl Virus
+- Healthy
 
 ## Contributing
 
@@ -75,6 +118,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Built to support farmers and agricultural consultants in identifying plant diseases
 - Aimed at reducing crop loss through early disease detection
+- Dataset provided by PlantVillage
 
 ---
 
