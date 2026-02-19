@@ -6,7 +6,7 @@ An end-to-end deep learning application that identifies plant diseases from leaf
 
 - **Disease Detection**: Accurately identifies various plant diseases from leaf images
 - **Deep Learning Powered**: Uses CNN (Convolutional Neural Networks) for image classification
-- **Multi-Crop Support**: Detects diseases in peppers, potatoes, and tomatoes
+- **Multi-Crop Support**: Detects diseases in peppers, potatoes and tomatoes
 - **User-Friendly Interface**: Simple web application for easy image upload and diagnosis
 - **Early Intervention**: Helps farmers and gardeners take timely action to prevent crop loss
 - **Fast Results**: Quick analysis and diagnosis of plant health issues
@@ -122,4 +122,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Note**: This project is in development. More features and documentation will be added as the project progresses.
+**Note**: This project is in development. More features and documentation will be added as the project progresses. 
