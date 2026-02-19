@@ -1,9 +1,8 @@
 # Agri-Vision AI
 
-An end-to-end plant disease detection system — from a fine-tuned **EfficientNetB0** deep learning model to a production **FastAPI** backend and a **Next.js** frontend deployed on Vercel. Upload a leaf image to get an instant diagnosis across 15 disease classes with **98.88% validation accuracy**.
+An end-to-end plant disease detection system from a fine-tuned **EfficientNetB0** deep learning model to a production **FastAPI** backend and a **Next.js** frontend deployed on Vercel. Upload a leaf image to get an instant diagnosis across 15 disease classes with **98.88% validation accuracy**.
 
 **Live Demo:** [agri-vision-ai-ashy.vercel.app](https://agri-vision-ai-ashy.vercel.app)  
-**API:** [agri-vision-ai-ci07.onrender.com](https://agri-vision-ai-ci07.onrender.com)
 
 ## Results
 
@@ -14,13 +13,13 @@ An end-to-end plant disease detection system — from a fine-tuned **EfficientNe
 
 ## Features
 
-- **High-Accuracy Disease Detection**: 98.88% validation accuracy across 15 plant disease classes
-- **Transfer Learning**: EfficientNetB0 pretrained on ImageNet, fine-tuned with a two-phase strategy
-- **Robust Data Pipeline**: Automated quality filtering, duplicate detection, and class-weighted training
-- **Smart Augmentation**: Standard augmentation for majority classes; aggressive augmentation for minority classes
-- **Multi-Crop Support**: Detects diseases in peppers, potatoes, and tomatoes
-- **Production-Ready Inference**: `predict.py` returns top prediction and top-k confidence scores from raw image bytes
-- **FastAPI Backend**: Ready to be served as a REST API
+- 98.88% validation accuracy across 15 plant disease classes
+- EfficientNetB0 pretrained on ImageNet and fine-tuned with a two-phase strategy
+- Automated quality filtering, duplicate detection and class-weighted training
+- Standard augmentation for majority classes and aggressive augmentation for minority classes
+- Detects diseases in peppers, potatoes and tomatoes
+- `predict.py` returns top prediction and top-k confidence scores from raw image bytes
+- Ready to be served as a REST API
 
 ## Technology Stack
 
@@ -36,8 +35,8 @@ An end-to-end plant disease detection system — from a fine-tuned **EfficientNe
 ## Dataset & Preprocessing
 
 ### Raw Dataset
-- **20,637 images** across **15 disease classes** (3 crops: pepper, potato, tomato)
-- Original images: 256×256 JPEG, RGB
+- **20,637 images** across **15 disease classes** (3 crops: pepper, potato and tomato)
+- Original images have an aspect ratio, 256×256 JPEG and RGB mode
 
 ### Cleaning & Quality Filtering (Notebooks 02–03)
 | Filter | Threshold | Excluded |
@@ -56,8 +55,8 @@ An end-to-end plant disease detection system — from a fine-tuned **EfficientNe
 | Test | 3,049 | 15% |
 
 - Random seed: 42
-- Target image size: **224×224** (EfficientNetB0 input)
-- Class weights computed to handle imbalance (imbalance ratio: ~21×)
+- Target image size is normalised to **224×224** (EfficientNetB0 input)
+- Class weights computed to handle imbalance
 
 ## Model Architecture
 
@@ -75,22 +74,22 @@ Input (224×224×3)
 
 ### Training Strategy
 
-**Phase 1 — Head Training (Frozen Backbone)**
-- Backbone frozen; only the classification head trained
-- Optimizer: Adam (lr = 1e-3)
+**Head Training (Frozen Backbone)**
+- Backbone frozen and only the classification head trained
+- Adam Optimiser utilised (lr = 1e-3)
 - Epochs: 20 | Callbacks: EarlyStopping (patience 8), ReduceLROnPlateau, ModelCheckpoint
-- Result: val accuracy jumped from 91.73% → **97.84%** with val loss **0.0702**
+- Val accuracy jumped from 91.73% to 97.84% with val loss being 0.0702
 
-**Phase 2 — Fine-tuning (Top 30 Layers Unfrozen)**
+**Fine-tuning the top 30 unfrozen layers**
 - Top 30 EfficientNetB0 layers unfrozen (~1.83M trainable parameters)
-- Optimizer: Adam (lr = 1e-5) — very low to protect pretrained weights
+- Adam Optimiser utilised (lr = 1e-5) and maintained very low to protect pretrained weights
 - Epochs: 50 | Callbacks: EarlyStopping (patience 10), ReduceLROnPlateau, ModelCheckpoint
-- Result: val accuracy climbed from 93.70% → **98.88%** with val loss **0.0323**
-- Val loss was still improving at epoch 50 — further gains are possible
+- val accuracy climbed from 93.70% to 98.88% with a val loss of 0.0323
+- Val loss was still improving at epoch 50 implying that further gains are possible
 
 **Data Augmentation**
-- *Standard* (majority classes): random horizontal/vertical flip, brightness ±0.2, contrast ×[0.8, 1.2]
-- *Aggressive* (minority classes): above + saturation ×[0.7, 1.3], hue ±0.05
+- Random horizontal/vertical flip, brightness ±0.2, contrast ×[0.8, 1.2] for the standard augmentation of majority classes
+- Aggressive augmentation for minority classes above + saturation ×[0.7, 1.3] and hue ±0.05
 
 ## Getting Started
 
@@ -105,7 +104,7 @@ Input (224×224×3)
 git clone https://github.com/KarikariSamuelZachary/agri-vision-ai.git
 cd agri-vision-ai
 python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -117,9 +116,9 @@ from ml.src.predict import predict
 with open("leaf.jpg", "rb") as f:
     result = predict(f.read(), top_k=3)
 
-print(result["predicted_class"])   # e.g. "Tomato_Late_blight"
-print(result["confidence"])        # e.g. 0.9871
-print(result["top_k_predictions"]) # list of {class, confidence}
+print(result["predicted_class"])   
+print(result["confidence"])        
+print(result["top_k_predictions"])
 ```
 
 ## Project Structure
@@ -204,11 +203,11 @@ agri-vision-ai/
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+Contributions, issues and feature requests are welcome!
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Author
 
