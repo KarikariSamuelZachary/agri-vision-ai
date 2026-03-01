@@ -1,0 +1,45 @@
+{
+  "random_seed": 42,
+  "split_ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15
+  },
+  "image_size": [
+    224,
+    224
+  ],
+  "normalization": {
+    "mean": [
+      0.46,
+      0.48,
+      0.42
+    ],
+    "std": [
+      0.21,
+      0.18,
+      0.22
+    ]
+  },
+  "filtering_thresholds": {
+    "blur_default": 100,
+    "blur_overrides": {
+      "Tomato__Tomato_YellowLeaf__Curl_Virus": 25
+    },
+    "brightness_min": 50,
+    "quality_score_min": 0.4
+  },
+  "exclusions": {
+    "exact_duplicates": 14,
+    "cross_class_duplicates": 4,
+    "quality_filtered": 299,
+    "total_excluded": 312
+  },
+  "final_dataset": {
+    "total_clean": 20325,
+    "train": 14227,
+    "val": 3049,
+    "test": 3049,
+    "n_classes": 15
+  }
+}
