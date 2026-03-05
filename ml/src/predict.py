@@ -65,7 +65,7 @@ def predict(image_bytes: bytes, top_k: int = 3) -> dict:
     top_k_indices = np.argsort(predictions)[::-1][:top_k]
     top_k_predictions = [
         {
-            "class": index_to_class[int(i)],
+            "predicted_class": index_to_class[int(i)],
             "confidence": float(predictions[i])
         }
         for i in top_k_indices
