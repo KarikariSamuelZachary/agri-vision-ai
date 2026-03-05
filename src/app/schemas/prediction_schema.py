@@ -1,11 +1,11 @@
 from pydantic import BaseModel
 
-class Top_K_predictions(BaseModel):
+class TopKPredictions(BaseModel):
     predicted_class:str
     confidence:float
 
 class PredictionResponse(BaseModel):
     predicted_class:str
     confidence:float
-    top_k_predictions:list[Top_K_predictions]
+    top_k_predictions:list[TopKPredictions]
 
