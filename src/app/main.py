@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from src.app.core.config import settings
 from src.app.routes.prediction_routes import router
@@ -8,7 +9,15 @@ app = FastAPI(
     version=settings.APP_VERSION,
 )
 
-app.include_router(router, prefix="/predict_disease")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(router, prefix="/predict")
 
 @app.get("/")
 def root():
