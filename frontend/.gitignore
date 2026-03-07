@@ -14,3 +14,7 @@ node_modules/
 
 # Next.js panic logs
 next-panic-*.log
+
+# Auto-generated / build artifacts
+next-env.d.ts
+tsconfig.tsbuildinfo
