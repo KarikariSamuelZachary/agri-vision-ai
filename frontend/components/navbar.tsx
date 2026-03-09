@@ -40,7 +40,7 @@ export function Navbar() {
             Diagnose
           </Link>
           <a
-            href="https://github.com"
+            href="https://github.com/KarikariSamuelZachary/agri-vision-ai"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"

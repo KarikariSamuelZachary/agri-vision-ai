@@ -1,6 +1,9 @@
 # Agri-Vision AI
 
-An end-to-end deep learning pipeline that identifies plant diseases from leaf images, enabling early intervention and reducing crop loss. Built on a fine-tuned **EfficientNetB0** backbone trained on the PlantVillage dataset, achieving **98.88% validation accuracy** across 15 disease classes.
+An end-to-end plant disease detection system — from a fine-tuned **EfficientNetB0** deep learning model to a production **FastAPI** backend and a **Next.js** frontend deployed on Vercel. Upload a leaf image to get an instant diagnosis across 15 disease classes with **98.88% validation accuracy**.
+
+**Live Demo:** [agri-vision-ai-ashy.vercel.app](https://agri-vision-ai-ashy.vercel.app)  
+**API:** [agri-vision-ai-ci07.onrender.com](https://agri-vision-ai-ci07.onrender.com)
 
 ## Results
 
@@ -26,7 +29,8 @@ An end-to-end deep learning pipeline that identifies plant diseases from leaf im
 | Deep Learning | TensorFlow 2.18 / Keras — EfficientNetB0 |
 | Data Processing | NumPy, Pandas, Pillow, scikit-learn |
 | Visualisation | Matplotlib, Seaborn |
-| API Backend | FastAPI, Uvicorn |
+| API Backend | FastAPI, Uvicorn (deployed on Render) |
+| Frontend | Next.js 14, Tailwind CSS, shadcn/ui (deployed on Vercel) |
 | Dataset | PlantVillage (20,637 raw images, 15 classes) |
 
 ## Dataset & Preprocessing
@@ -125,6 +129,26 @@ agri-vision-ai/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
+├── requirements-prod.txt
+├── render.yaml                              # Render deployment config
+├── src/
+│   └── app/
+│       ├── main.py                          # FastAPI app entry point
+│       ├── core/
+│       │   └── config.py                    # App settings (CORS, model path)
+│       ├── routes/
+│       │   └── prediction_routes.py         # POST /predict/ endpoint
+│       ├── schemas/
+│       │   └── prediction_schema.py         # Pydantic response models
+│       └── services/
+│           └── model_service.py             # Wraps ML inference
+├── frontend/                                # Next.js 14 frontend (Vercel)
+│   ├── app/
+│   │   ├── page.tsx                         # Landing page
+│   │   └── diagnose/page.tsx                # Image upload & diagnosis page
+│   ├── components/                          # Navbar, footer, disease card, etc.
+│   └── lib/
+│       └── api.ts                           # fetch wrapper for backend
 └── ml/
     ├── data/
     │   ├── metadata.json                    # Dataset-level statistics
@@ -152,7 +176,7 @@ agri-vision-ai/
     │   ├── 06_baseline_cnn.ipynb            # Baseline custom CNN experiments
     │   └── 07_model_training.ipynb          # EfficientNetB0 two-phase training
     └── src/
-        └── predict.py                       # Inference module (FastAPI-ready)
+        └── predict.py                       # Inference module
 ```
 
 ## Supported Classes

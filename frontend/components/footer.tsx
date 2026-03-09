@@ -48,7 +48,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="https://github.com/KarikariSamuelZachary/agri-vision-ai" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   GitHub
                 </a>
               </li>
