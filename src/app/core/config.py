@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     APP_NAME: str = "agri-vision-ai"
     APP_VERSION: str = "1.0.0"
     MODEL_DIR: str = str(BASE_DIR / "ml" / "models")
-    ALLOWED_ORIGINS: str = "http://localhost:3000"
+    ALLOWED_ORIGINS: str = "http://localhost:3000,https://agri-vision-ai-ashy.vercel.app"
 
     @property
     def allowed_origins_list(self) -> List[str]:
