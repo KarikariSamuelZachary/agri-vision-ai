@@ -10,21 +10,24 @@ MODEL_PATH = MODELS_DIR / "best_model.keras"
 INDEX_TO_CLASS_PATH = MODELS_DIR / "index_to_class.json"
 CONFIG_PATH = MODELS_DIR / "preprocessing_config.json"
 
-# Load artifacts once at import time
-print("Loading model and artifacts...")
+model = None
+index_to_class = None
+IMAGE_SIZE = None
 
-model = keras.models.load_model(str(MODEL_PATH))
 
-with open(INDEX_TO_CLASS_PATH) as f:
-    index_to_class = {int(k): v for k, v in json.load(f).items()}
+def initialize():
+    global model, index_to_class, IMAGE_SIZE
+    print("Loading model and artifacts...")
+    model = keras.models.load_model(str(MODEL_PATH))
 
-with open(CONFIG_PATH) as f:
-    config = json.load(f)
+    with open(INDEX_TO_CLASS_PATH) as f:
+        index_to_class = {int(k): v for k, v in json.load(f).items()}
 
-IMAGE_SIZE = tuple(config["image_size"])
-N_CLASSES = len(index_to_class)
+    with open(CONFIG_PATH) as f:
+        config = json.load(f)
 
-print(f"Model loaded — {N_CLASSES} classes, image size {IMAGE_SIZE}")
+    IMAGE_SIZE = tuple(config["image_size"])
+    print(f"Model loaded — {len(index_to_class)} classes, image size {IMAGE_SIZE}")
 
 
 def preprocess_image(image_bytes: bytes) -> tf.Tensor:
