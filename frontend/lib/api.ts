@@ -20,7 +20,7 @@ export async function predictPlantDisease(
   formData.append('file', imageFile)
 
   try {
-    const response = await fetch(`${API_URL}/predict`, {
+    const response = await fetch(`${API_URL}/predict/`, {
       method: 'POST',
       body: formData,
     })
