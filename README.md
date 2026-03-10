@@ -8,7 +8,7 @@ An end-to-end plant disease detection system from a fine-tuned **EfficientNetB0*
 
 | Phase | Description | Val Accuracy | Val Loss |
 |-------|-------------|:------------:|:--------:|
-| Phase 1 | Frozen backbone — head training only (20 epochs) | 97.84% | 0.0702 |
+| Phase 1 | Frozen backbone head training only (20 epochs) | 97.84% | 0.0702 |
 | Phase 2 | Fine-tuned top 30 backbone layers (50 epochs) | **98.88%** | **0.0323** |
 
 ## Features
@@ -25,18 +25,18 @@ An end-to-end plant disease detection system from a fine-tuned **EfficientNetB0*
 
 | Layer | Technology |
 |-------|------------|
-| Deep Learning | TensorFlow 2.18 / Keras — EfficientNetB0 |
+| Deep Learning | TensorFlow 2.18 / Keras |
 | Data Processing | NumPy, Pandas, Pillow, scikit-learn |
 | Visualisation | Matplotlib, Seaborn |
 | API Backend | FastAPI, Uvicorn (deployed on Render) |
 | Frontend | Next.js 14, Tailwind CSS, shadcn/ui (deployed on Vercel) |
 | Dataset | PlantVillage (20,637 raw images, 15 classes) |
 
-## Dataset & Preprocessing
+## Data Exploration & Preprocessing
 
 ### Raw Dataset
-- **20,637 images** across **15 disease classes** (3 crops: pepper, potato and tomato)
-- Original images have an aspect ratio, 256×256 JPEG and RGB mode
+- **20,637 images** across **15 disease classes** (pepper, potato and tomato)
+- Original images have an aspect ratio 256×256, JPEG file format and RGB mode
 
 ### Cleaning & Quality Filtering (Notebooks 02–03)
 | Filter | Threshold | Excluded |
@@ -54,8 +54,8 @@ An end-to-end plant disease detection system from a fine-tuned **EfficientNetB0*
 | Val | 3,049 | 15% |
 | Test | 3,049 | 15% |
 
-- Random seed: 42
-- Target image size is normalised to **224×224** (EfficientNetB0 input)
+- Random seed of 42
+- Target image size is normalised to 224×224 which is the EfficientNetB0 standard for images
 - Class weights computed to handle imbalance
 
 ## Model Architecture
@@ -78,18 +78,18 @@ Input (224×224×3)
 - Backbone frozen and only the classification head trained
 - Adam Optimiser utilised (lr = 1e-3)
 - Epochs: 20 | Callbacks: EarlyStopping (patience 8), ReduceLROnPlateau, ModelCheckpoint
-- Val accuracy jumped from 91.73% to 97.84% with val loss being 0.0702
+- Validation accuracy jumped from 91.73% to 97.84% with val loss being 0.0702
 
 **Fine-tuning the top 30 unfrozen layers**
-- Top 30 EfficientNetB0 layers unfrozen (~1.83M trainable parameters)
+- Top 30 EfficientNetB0 layers unfrozen (1.83M trainable parameters)
 - Adam Optimiser utilised (lr = 1e-5) and maintained very low to protect pretrained weights
 - Epochs: 50 | Callbacks: EarlyStopping (patience 10), ReduceLROnPlateau, ModelCheckpoint
-- val accuracy climbed from 93.70% to 98.88% with a val loss of 0.0323
-- Val loss was still improving at epoch 50 implying that further gains are possible
+- Validation accuracy climbed from 93.70% to 98.88% with a val loss of 0.0323
+- Validation loss was still improving at epoch 50 implying that further gains are possible
 
 **Data Augmentation**
 - Random horizontal/vertical flip, brightness ±0.2, contrast ×[0.8, 1.2] for the standard augmentation of majority classes
-- Aggressive augmentation for minority classes above + saturation ×[0.7, 1.3] and hue ±0.05
+- Aggressive augmentation for minority classes with above + saturation ×[0.7, 1.3] and hue ±0.05
 
 ## Getting Started
 
@@ -203,7 +203,7 @@ agri-vision-ai/
 
 ## Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues and feature requests are welcome
 
 ## License
 
