@@ -41,8 +41,8 @@ An end-to-end plant disease detection system from a fine-tuned **EfficientNetB0*
 ### Cleaning & Quality Filtering (Notebooks 02–03)
 | Filter | Threshold | Excluded |
 |--------|-----------|:--------:|
-| Exact duplicates | — | 14 |
-| Cross-class duplicates | — | 4 |
+| Exact duplicates |  | 14 |
+| Cross-class duplicates |  | 4 |
 | Low quality (blur / brightness / score) | blur ≥ 100, brightness ≥ 50, score ≥ 0.4 | 299 |
 | **Total excluded** | | **312** |
 | **Clean dataset** | | **20,325** |
