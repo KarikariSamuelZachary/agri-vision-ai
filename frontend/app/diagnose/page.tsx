@@ -96,12 +96,14 @@ export default function DiagnosePage() {
           </Link>
 
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-2">
-              Diagnose Your Plant
-            </h1>
-            <p className="text-lg text-muted-foreground mb-12">
-              Upload a clear image of the affected leaf or fruit for AI analysis
-            </p>
+            <div className="text-center">
+              <h1 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-2">
+                Diagnose Your Plant
+              </h1>
+              <p className="text-lg text-muted-foreground mb-12">
+                Upload a clear image of the affected leaf or fruit for AI analysis
+              </p>
+            </div>
 
             {!result ? (
               <div className="space-y-8">
