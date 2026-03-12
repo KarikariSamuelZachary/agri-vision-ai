@@ -9,7 +9,7 @@ export default function Home() {
       <Navbar />
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-gradient-hero text-cream py-20 md:py-32">
+        <section className="relative overflow-hidden bg-gradient-hero text-cream py-10 md:py-15">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-amber filter blur-3xl" />
             <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-forest-green-light filter blur-3xl" />
