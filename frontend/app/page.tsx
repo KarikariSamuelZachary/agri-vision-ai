@@ -153,7 +153,7 @@ export default function Home() {
         </section>
 
         {/* Stats */}
-        <section className="py-20 md:py-32 bg-background">
+        <section className="py-5 md:py-10 bg-background">
           <div className="container mx-auto px-4">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -200,7 +200,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 md:py-32 bg-gradient-to-r from-forest-green to-forest-green-light text-cream">
+        <section className="py-5 md:py-10 bg-gradient-to-r from-forest-green to-forest-green-light text-cream">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-pretty">
               Ready to Diagnose Your Plants?
