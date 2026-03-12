@@ -48,7 +48,7 @@ export default function Home() {
         </section>
 
         {/* How It Works */}
-        <section id="how-it-works" className="py-20 md:py-32 bg-background">
+        <section id="how-it-works" className="pt-5 pb-5 md:pt-14 md:pb-28 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
@@ -84,7 +84,7 @@ export default function Home() {
                     className="relative animate-fade-in"
                     style={{ animationDelay: `${idx * 0.1}s` }}
                   >
-                    <div className="rounded-lg border border-border bg-card p-8 text-center">
+                    <div className="h-full rounded-lg border border-border bg-card p-8 text-center flex flex-col items-center justify-center">
                       <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-amber/20 text-amber mb-4">
                         <StepIcon className="h-6 w-6" />
                       </div>
@@ -94,7 +94,7 @@ export default function Home() {
                       <p className="text-muted-foreground">{step.description}</p>
                     </div>
                     {idx < 2 && (
-                      <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
+                      <div className="hidden md:block absolute top-1/2 -right-7 transform -translate-y-1/2">
                         <ArrowRight className="h-6 w-6 text-muted-foreground" />
                       </div>
                     )}
@@ -106,9 +106,9 @@ export default function Home() {
         </section>
 
         {/* Supported Crops */}
-        <section className="py-20 md:py-32 bg-card border-t border-border">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16 animate-fade-in">
+        <section className="py-10 md:py-14 bg-card border-t border-border">
+        <div className="container mx-auto px-4">
+        <div className="text-center mb-8 animate-fade-in">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
                 Supported Crops
               </h2>
@@ -117,7 +117,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-3xl mx-auto">
               {[
                 {
                   name: 'Tomato',
